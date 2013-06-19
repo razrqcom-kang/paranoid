@@ -16,7 +16,7 @@ bldblu=${txtbld}$(tput setaf 4) #  blue
 bldcya=${txtbld}$(tput setaf 6) #  cyan
 txtrst=$(tput sgr0)             # Reset
 
-THREADS="16"
+THREADS="4"
 DEVICE="$1"
 EXTRAS="$2"
 
@@ -83,7 +83,7 @@ echo -e ""
 echo -e "${bldblu}Starting compilation ${txtrst}"
 
 # start compilation
-mka bacon
+make -j"$THREADS"
 echo -e ""
 
 # finished? get elapsed time
